@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@media (max-width: 430px) {
+
+    .header-left h1 {
+        font-size: 0.7em;
+    }
+
+    .header-right {
+        gap: 1.2em; 
+    }
+    
+    .header-right a {
+        color: #FFFFCC;
+        font-size: 0.7em;
+    }
+
+    .diary-item h3 {
+        font-size: 0.9em;
+    }
+
+    .comment {
+        padding: 10px 15px; /* 吹き出し内の余白 */
+        font-size: 0.8em;
+        max-width: 85%; /* 吹き出しの最大幅を指定 */
+    }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日記一覧</title>
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="/css/responsive2.css">
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <h1><%= locals.userName %>さん、おかえりなさい</h1>
+        </div>
+        <div class="header-right">
+            <a href="/">TOP</a>
+            <a href="/today">日記を書く</a>
+            <a href="/logout">ログアウト</a>
+        </div>
+    </header>
+
+    <div class="diary-list-container">
+        <!-- 日記一覧 -->
+        <h2>daiary</h2>
+        <ul id="diary-list">
+            <% if (count === 0) { %>
+                <p class="comment-box">
+                    <img src="/image/icon.png" alt="アイコン" class="icon">
+                    <span class="comment">日記を書いてみよう！</span>
+                </p>
+            <% } %>
+            <% dailys.forEach((daily) => { %>
+                <li class="diary-item">
+                    <p><strong>日付:</strong> <%= daily.date.toLocaleDateString() %></p>
+                    <h3><%= daily.contents %></h3>
+                    <p class="comment-box">
+                        <img src="/image/icon.png" alt="アイコン" class="icon">
+                        <span class="comment"><%= daily.comments %></span>
+                    </p>                    
+                    <div class="diary-item-actions">
+                        <form action="/delete/<%=daily.id%>" method="post">
+                            <input type="submit" value="削除">
+                        </form>
+                    </div>
+                </li>
+            <% }); %>
+        </ul>
+
+        <!-- ページネーション -->
+        <div class="pagination">
+            <% if (currentPage > 1) { %>
+                <a href="/list?page=<%= currentPage - 1 %>">前へ</a>
+            <% } %>
+            <% for (let i = 1; i <= totalPages; i++) { %>
+                <a href="/list?page=<%= i %>" class="<%= i === currentPage ? 'active' : '' %>">
+                    <%= i %>
+                </a>
+            <% } %>
+            <% if (currentPage < totalPages) { %>
+                <a href="/list?page=<%= currentPage + 1 %>">次へ</a>
+            <% } %>
+        </div>
+    </div>
+
+</body>
+</html>

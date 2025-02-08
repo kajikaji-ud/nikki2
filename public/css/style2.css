@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box; /* 余白やボーダーを要素のサイズに含める */
+}
+
+body {
+    font-family: "Hannari", cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(/image/nikki1.jpg);
+    background-repeat:  no-repeat;                                      
+    background-position:center center;                     
+    background-size:cover; 
+}
+
+header {
+    display: flex; /* Flexboxを有効化 */
+    align-items: center; /* 縦方向を中央揃え */
+    justify-content: space-between; /* 左右を分ける */
+    padding: 0 1em; /* 左右に余白を追加 */
+    height: 65px;
+    background-color: rgba(34, 49, 52, 0.9);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+.header-left h1 {
+    margin: 0; /* h1の余白をリセット */
+    font-size: 1.5em;
+}
+
+.header-right {
+    display: flex; /* 子要素を横並びに */
+    gap: 2em; /* リンク間の余白を設定 */
+}
+
+.header-right a {
+    color: white;
+    text-decoration: none; /* 下線を消す */
+    font-size: 1em;
+}
+
+.header-right a:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+.diary-list-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #FF3366;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.diary-item {
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #F5F5DC;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.diary-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.comment-box {
+    display: flex; /* アイコンとコメントを横並びに */
+    align-items: center; /* 縦方向を中央揃え */
+    margin: 1em 0;
+}
+
+.icon {
+    width: 50px; /* アイコンの幅 */
+    height: 50px; /* アイコンの高さ */
+    border-radius: 50%; /* アイコンを丸くする */
+    margin-right: 10px; /* アイコンとコメントの間に余白を作る */
+    border: 2px solid #ccc; /* アイコンに枠をつける */
+    background-color: white;
+}
+
+.comment {
+    background-color: #CCFFCC; /* 吹き出しの背景色 */
+    padding: 10px 15px; /* 吹き出し内の余白 */
+    border-radius: 15px; /* 吹き出しを丸みのある形にする */
+    position: relative; /* 吹き出しの装飾のための基準位置 */
+    font-size: 1.2em;
+    color: #333; /* 文字色 */
+    max-width: 85%; /* 吹き出しの最大幅を指定 */
+    word-wrap: break-word; /* 長いテキストを折り返す */
+}
+
+strong {
+    color: blue;
+}
+
+.diary-item-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.diary-item-actions form {
+    margin: 0;
+}
+
+.diary-item-actions input[type="submit"] {
+    background-color: #FF3366;
+    color: #FFF;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+.diary-item-actions input[type="submit"]:hover {
+    background-color: #FF4C4C;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+.pagination a {
+    text-decoration: none;
+    background-color: #FF3366;
+    color: white;
+    font-size: 0.95em;
+    padding: 8px 12px;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+}
+.pagination a:hover {
+    background-color: #E9ECEF;
+}
+

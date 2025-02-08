@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box; /* 余白やボーダーを要素のサイズに含める */
+}
+
+body {
+    position: relative;
+    font-family: "Hannari", cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(/image/nikki2.jpg);
+    background-repeat:  no-repeat;                                      
+    background-position:center center;                     
+    background-size:cover;     
+    font-size: 20px;
+    color: #333;                         
+}
+
+header {
+    display: flex; /* Flexboxを有効化 */
+    align-items: center; /* 縦方向を中央揃え */
+    justify-content: space-between; /* 左右を分ける */
+    padding: 0 1em; /* 左右に余白を追加 */
+    height: 65px;
+    background-color: rgba(34, 49, 52, 0.9);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+.header-right {
+    display: flex; /* 子要素を横並びに */
+    gap: 2em; /* リンク間の余白を設定 */
+}
+
+.header-right a {
+    color: white;
+    text-decoration: none; /* 下線を消す */
+    font-size: 1em;
+}
+
+.header-right a:hover {
+    text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 1em;
+    border-radius: 8px;
+}
+
+.bubble-container {
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 15px 1.5em 0;
+    padding: 40px 80px;
+    min-width: 120px;
+    max-width: 100%;
+    background: white;
+    border-radius: 15px;
+}
+
+.bubble-container::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    border: 15px solid transparent;
+    border-left: 15px solid white;
+}
+
+.bubble-container-left {
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 15px 1.5em 0;
+    padding: 40px 80px;
+    min-width: 120px;
+    max-width: 100%;
+    background: white;
+    border-radius: 15px;
+}
+
+.bubble-container-left::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    margin-top: -20px;
+    border: 15px solid transparent;
+    border-right: 15px solid white;
+    z-index: 2;
+}
+
+.bubble-container-left:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -25px;
+    margin-top: -14px;
+    border: 14px solid transparent;
+    border-right: 14px solid white;
+    z-index: 1;
+}
+
+.demo {
+    display: flex;
+    align-items: center; /* 縦方向の位置を揃える */
+    justify-content: center; 
+    gap: 20px; /* 吹き出しと画像の間隔を広げる */
+    width: 100%;
+    margin: 20px 0px 100px 0px;
+}
+
+.demo-img {
+    max-width: 100%; 
+    border-radius: 10px;
+    flex-shrink: 0; /* 画像が縮まないように設定 */
+}
+
+.neko1 {
+    display: flex;
+    align-items: center; /* 縦方向の位置を揃える */
+    justify-content: right; 
+    gap: 20px; /* 吹き出しと画像の間隔を広げる */
+    width: 100%;
+    margin: 20px 0px 20px 0px; 
+}
+
+.neko2 {
+    display: flex;
+    align-items: center; /* 縦方向の位置を揃える */
+    justify-content: left; 
+    gap: 20px; /* 吹き出しと画像の間隔を広げる */
+    width: 100%;
+    margin: 20px 0px 20px 0px; 
+} 
+
+.chara{
+    max-width: 20%; /* 画像の幅を統一 */
+    border-radius: 10px;
+    flex-shrink: 0; /* 画像が縮まないように設定 */
+}
+
+.mihon {
+    max-width: 100%; /* 画像の幅を統一 */
+    border-radius: 10px;
+    flex-shrink: 0; /* 画像が縮まないように設定 */
+}
+
+.mihon1 {
+    max-width: 100%; /* 画像の幅を統一 */
+    border-radius: 10px;
+    flex-shrink: 0; /* 画像が縮まないように設定 */
+}
+
+.mihon2 {
+    display: none;
+}

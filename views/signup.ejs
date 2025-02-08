@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規登録</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>振り返りの庭</h1>
+    </header>
+
+    <% if (errors.length > 0) { %>
+        <ul class="errors">
+          <% errors.forEach(error => { %>
+            <li><%= error %></li>
+          <% }); %>
+        </ul>
+    <% } %>
+
+    <div class="register-container" id="registerContainer">
+        <form id="registerForm" action="/signup" method="post">
+            <label for="name">ユーザーネーム</label>
+            <input type="text" id="regName" name="regName" placeholder="ユーザーネームを入力" required>
+
+            <label for="regEmail">メールアドレス</label>
+            <input type="email" id="regEmail" name="regEmail" placeholder="メールアドレスを入力" required>
+
+            <label for="regPassword">パスワード</label>
+            <input type="password" id="regPassword" name="regPassword" placeholder="パスワードを入力" required>
+
+            <label for="regConfirmPassword">パスワード確認</label>
+            <input type="password" id="regConfirmPassword" name="regConfirmPassword" placeholder="もう一度パスワードを入力" required>
+
+            <button type="submit">登録</button>
+        </form>
+        <p><a href="/login">ログインはこちら</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box; /* 余白やボーダーを要素のサイズに含める */
+}
+
+body {
+    font-family: "Hannari", cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(/image/nikki1.jpg);
+    background-repeat:  no-repeat;                                      
+    background-position:center center;                     
+    background-size:cover; 
+}
+
+header {
+    color: white;
+    padding: 1em 0;
+    display: flex;
+    align-items: center; /* 縦方向で中央揃え */
+    justify-content: center; /* 横方向で中央揃え */
+    height: 80px;
+    width: 100%;
+    background-color: rgba(34, 49, 52, 0.9);
+}
+
+.diary-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #F5F5DC;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+#date {
+    font-size: 17px;
+}
+
+input, textarea {
+    width: calc(100% - 8px); /* 横幅を少し狭める */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* パディングを考慮した幅指定 */
+    background-color: #CCFFCC;
+}
+
+textarea {
+    font-size: 17px;
+    height: 150px;
+    resize: vertical;
+}
+
+.ai-comment {
+    margin-top: 15px;
+    padding: 10px;
+    border-left: 4px solid #007BFF;
+    border-radius: 4px;
+    color: #333;
+    background-color: #CCFFCC;
+    display: flex; /* アイコンとコメントを横並びに */
+    align-items: center; /* 縦方向を中央揃え */
+}
+
+.icon {
+    width: 50px; /* アイコンの幅 */
+    height: 50px; /* アイコンの高さ */
+    border-radius: 50%; /* アイコンを丸くする */
+    margin-right: 10px; /* アイコンとコメントの間に余白を作る */
+    border: 2px solid #ccc; /* アイコンに枠をつける */
+    background-color: white;
+}
+
+.generate-button {
+    display: block; /* ボタンをブロック要素にすることで幅を100%に */
+    margin: 0 auto; /* 水平方向に中央揃え */
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    background-color:  #5dca88;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center; /* テキスト中央揃え */
+    box-shadow: 0 7px #1a7940;
+}
+
+.generate-button:active {
+    box-shadow: none;
+    position: relative;
+    top: 7px;
+  }
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.save-button {
+    background-color: #FF3366;
+}
+
+.back-button {
+    background-color: #FF3366;
+}
+
+button:hover {
+    opacity: 0.8;
+}

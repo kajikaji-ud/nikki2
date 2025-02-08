@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日記を書く</title>
+    <link rel="stylesheet" href="/css/style3.css">
+    <link rel="stylesheet" href="/css/responsive3.css">
+    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>一緒に今日を振り返ろう</h1>
+    </header>
+
+    <div class="diary-container">
+        <form action="/save" method="post">
+
+            <label for="date">日付</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="diary">日記</label>
+            <textarea maxlength="300" id="diary" name="diary" placeholder="今日の出来事や感想を書いてください...(300字まで)" required></textarea>
+
+            <button type="button" class="generate-button" id="generateCommentButton">コメント生成ボタン<br class="sp_br">（書き終わったら押してね！）</button>
+
+            <!-- AIのコメント -->
+            <div class="ai-comment">
+                <img src="/image/neko3.png" alt="アイコン" class="icon">
+                <p id="aiComment" name="aiComment">日記にぼくがコメントするよ！</p>
+            </div>
+            <input type="hidden" id="hiddenAiComment" name="aiComment">
+
+            <!-- ボタン -->
+            <div class="button-container">
+                <button type="submit" class="save-button">保存</button>
+                <button type="button" class="back-button" onclick="window.location.href='/list';">一覧へ戻る</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let isCommentGenerated = false;
+
+        document.getElementById("generateCommentButton").addEventListener("click", async function () {
+            if (isCommentGenerated) {
+            alert("コメントはすでに生成されてるよ。保存ボタンを押すか一覧に戻ってね");
+            return;
+    }
+            const diaryText = document.getElementById("diary").value;
+
+            if (diaryText.length > 0) {
+                document.getElementById("aiComment").textContent = "ちょっと待っててね…";
+                isCommentGenerated = true; 
+                try {
+                    const response = await fetch("/generate-comment", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ diary: diaryText }),
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        document.getElementById("aiComment").textContent = data.aiComment;
+                        document.getElementById("hiddenAiComment").value = data.aiComment; 
+
+                    } else {
+                        document.getElementById("aiComment").textContent = "コメントを生成できませんでした。";
+                        isCommentGenerated = false; 
+                    }
+                } catch (error) {
+                    console.error("Error fetching AI comment:", error);
+                    document.getElementById("aiComment").textContent = "エラーが発生しました。";
+                    isCommentGenerated = false;
+                }
+            } else {
+                document.getElementById("aiComment").textContent = "日記が入力されてないよ！";
+            }
+        });
+    </script>
+</body>
+</html>
