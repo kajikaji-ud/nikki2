@@ -1,0 +1,24 @@
+# Node.js関連
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+
+# 環境ファイル
+.env
+
+# ビルドやキャッシュ
+dist/
+build/
+coverage/
+*.cache
+
+# OS特有
+.DS_Store
+Thumbs.db
+
+# ログ
+logs/
+*.log
